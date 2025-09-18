@@ -1,0 +1,7 @@
+spring.application.name=splitwise-lite
+spring.datasource.url=jdbc:postgresql://localhost:5432/splitwise_lite
+spring.datasource.username=postgres
+spring.datasource.password=YOUR_PASSWORD
+
+# Hibernate Settings
+spring.jpa.hibernate.ddl-auto=update
