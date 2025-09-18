@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-
+import java.util.List;
 @Service
 public class ExpenseService {
 
@@ -28,6 +28,11 @@ public class ExpenseService {
 
     @Autowired
     private UserRepository userRepository;
+
+    public List<Expense> getExpensesByGroupId(Long groupId) {
+        // We simply call the new method we created in the repository
+        return expenseRepository.findByGroupId(groupId);
+    }
 
     @Transactional
     public ExpenseResponseDTO createExpense(Expense expense) {
