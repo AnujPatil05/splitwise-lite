@@ -4,6 +4,7 @@ import com.example.splitwise_lite.model.Group;
 import com.example.splitwise_lite.model.Expense;
 import com.example.splitwise_lite.service.ExpenseService;
 import com.example.splitwise_lite.service.GroupService;
+import com.example.splitwise_lite.dto.BalanceDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -37,5 +38,11 @@ public class GroupController {
     public List<Expense> getExpensesByGroup(@PathVariable Long groupId) {
         return expenseService.getExpensesByGroupId(groupId);
     }
+
+    @GetMapping("/{groupId}/balance")
+    public List<BalanceDTO> getGroupBalance(@PathVariable Long groupId) {
+        return expenseService.getGroupBalance(groupId);
+    }
+
 
 }
