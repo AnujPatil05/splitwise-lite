@@ -47,7 +47,7 @@ public class ExpenseService {
                 .orElseThrow(() -> new GroupNotFoundException(groupId));
 
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new UserNotFoundException(userId));
+                .orElseThrow(() -> new UserNotFoundException("User not found with id :" + userId));
 
         if (group.getMembers().isEmpty()) {
             throw new EmptyGroupException(groupId);

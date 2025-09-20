@@ -33,7 +33,7 @@ public class GroupService {
     public Group addUserToGroup(Long groupId, Long userId) {
         Group group = getGroupById(groupId);
         User user = userRepository.findById(userId)
-                .orElseThrow(() -> new UserNotFoundException(userId));
+                .orElseThrow(() -> new UserNotFoundException("User not found with id:" +userId));
 
         group.getMembers().add(user);
         return groupRepository.save(group);
